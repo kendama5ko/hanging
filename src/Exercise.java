@@ -12,11 +12,8 @@ public class Exercise {
 					if(i+j+k==10){
 						System.out.printf("[%d, %d, %d]%n",i,j,k);	
 					}				
-				}
+				} 
 			}
 		}
 	}
-
-	
-        
-    }
+}
