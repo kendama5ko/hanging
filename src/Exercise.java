@@ -2,7 +2,6 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.Random;
 
-// 4-1
 
 public class Exercise {
     public static void main(String[] args) {		
