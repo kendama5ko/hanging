@@ -4,26 +4,27 @@ public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     int N = sc.nextInt();
-    int A = sc.nextInt();
-    int B = sc.nextInt();
+    List<Integer> a = new ArrayList<>();
+    for (int i = 0; i < N; i++) {
+      a.add(sc.nextInt());
+    }
     sc.close();
-    LinkedList<Integer> part = new LinkedList<>();
-    int sum = 0;
+    Collections.sort(a);
+    Collections.reverse(a);
+    int alice = 0;
+    int bob = 0;
     int res = 0;
-    for (int i = 1; i <= N; i++) {
-      int c = i;
-      sum = 0;
-      while (c != 0) {
-        part.push(c % 10);
-        c /= 10;
-      }
-      while (!part.isEmpty()) {
-        sum += part.pop();
-      }
-      if (A <= sum && sum <= B) {
-        res += i;
+    for (int i = 0; i < N; i++) {
+      if ( i % 2 == 1) {
+        bob += a.get(i);
+      } else {
+        alice += a.get(i);
       }
     }
-  System.out.println(res);
+    res = alice - bob;
+    
+    System.out.println(alice - bob);
+
+    
   }
 }
