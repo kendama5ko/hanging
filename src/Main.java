@@ -3,33 +3,29 @@ import java.util.*;
 public class Main {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    int N = sc.nextInt();
-    int Y = sc.nextInt();
-    var res = false;
-    int z = 0;
+    String S = sc.nextLine();
+    String key1 = "dreamer";
+    String key2 = "eraser";
+    String key3 = "dream";
+    String key4 = "erase";
     sc.close();
-    label: for (int i = 0; i <= N; i++) {
-      if (Y == 10000 * i && i == N) {
-        System.out.println(i + " " + 0 + " " + 0);
-        res = true;
-        break label;
+
+    while (!S.isEmpty())
+      if (S.endsWith(key1)) {
+        S = S.substring(0, S.length() - key1.length());
+      } else if (S.endsWith(key2)) {
+        S = S.substring(0, S.length() - key2.length());
+      } else if (S.endsWith(key3)) {
+        S = S.substring(0, S.length() - key3.length());
+      } else if (S.endsWith(key4)) {
+        S = S.substring(0, S.length() - key4.length());
+      } else {
+        break;
       }
-      for (int j = 0; j <= N; j++) {
-        if (Y == 10000 * i + 5000 * j && i + j == N) {
-          System.out.println(i + " " + j + " " + 0);
-          res = true;
-          break label;
-        } else if ((Y - (10000 * i + 5000 * j)) % 1000 == 0) {
-          z = (Y - (10000 * i + 5000 * j)) / 1000;
-          if (z + i + j == N && z > 0) {
-            System.out.println(i + " " + j + " " + z);
-            res = true;
-            break label;
-          }
-        }
-      }
+    if (S.length() != 0) {
+      System.out.println("NO");
+    } else {
+      System.out.println("YES");
     }
-    if (!res)
-      System.out.println(-1 + " " + -1 + " " + -1);
   }
 }
